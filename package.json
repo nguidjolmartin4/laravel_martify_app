@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "autoprefixer": "^10.4.20",
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.41",
+        "tailwindcss": "^3.4.10",
+        "vite": "^5.0"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "@preline/datatable": "^2.4.1",
+        "@preline/select": "^2.4.1",
+        "@preline/strong-password": "^2.4.1",
+        "@preline/toggle-password": "^2.4.1",
+        "@preline/tooltip": "^2.4.1",
+        "datatables.net-dt": "^2.1.4",
+        "preline": "^2.4.1"
+    }
+}
