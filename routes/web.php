@@ -11,6 +11,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/about', 'about')->name('about');
@@ -68,6 +69,16 @@ Route::middleware('auth')->group(function () {
 
 // Routes for the Guest Users
 Route::middleware('guest')->group(function () {
+    Route::get('/auth/github/redirect', function () {
+        return Socialite::driver('github')->redirect();
+    });
+
+    Route::get('/auth/github/callback', function () {
+        $user = Socialite::driver('github')->user();
+
+        // $user->token
+    });
+
     Route::view('/register', 'auth.register')->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('user.register');
 

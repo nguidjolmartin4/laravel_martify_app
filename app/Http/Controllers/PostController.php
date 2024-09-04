@@ -58,10 +58,14 @@ class PostController extends Controller
             $cover_image_path = Storage::disk('public')->put('images/posts_images', $request->cover_image);
         }
 
+        // In your PostController or wherever you handle the request
+        $body = $request->input('body');
+        $purifiedBody = app('purifier')->purify($body);
+
         // Create a post
         $post = Auth::user()->posts()->create([
             'title' => $request->title,
-            'body' => $request->body,
+            'body' => $purifiedBody,
             'cover_image' => $cover_image_path
         ]);
 
@@ -102,45 +106,40 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $user = Auth::user();
-
-        // Check if the authenticated user is the owner of the post
-        if ($user->id !== $post->user_id) {
-            return redirect()->route('dashboard')->with('error', 'You are not authorized to update this post.');
-        }
-
-        // Validate the request data
-        $validatedData = $request->validate([
+        $request->validate([
             'title' => 'required|string|max:255',
-            'body' => 'required|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'body' => 'required',
+            'cover_image' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
-        // Update the post with the validated data
-        $post->update($validatedData);
-
-        // Handle file upload if needed
         if ($request->hasFile('cover_image')) {
-            $path = $request->file('cover_image')->store('posts', 'public');
-            $post->cover_image = $path;
-            $post->save();
+            if ($post->cover_image) {
+                Storage::disk('public')->delete($post->cover_image);
+            }
+            $coverImage = $request->file('cover_image')->store('images/posts_images', 'public');
+            $post->update(['cover_image' => $coverImage]);
         }
+
+        // In your PostController or wherever you handle the request
+        $body = $request->input('body');
+        $purifiedbody = app('purifier')->purify($body);
+
+        // Save to database
+        $post->body = $purifiedbody;
+
+        $post->update($request->only('title', 'body'));
 
         // Redirect back with a success message
         return redirect()->route('posts.show', $post->id)->with('success', 'Post updated successfully.');
     }
-
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post)
     {
-        $user = Auth::user();
-
-        // Check if the user is the post owner or the admin (id = 1)
-        if ($user->id !== $post->user_id && $user->id !== 1) {
-            return redirect()->route('dashboard')->with('error', 'You are not authorized to delete this post.');
+        if ($post->cover_image) {
+            Storage::disk('public')->delete($post->cover_image);
         }
 
         // Delete the post

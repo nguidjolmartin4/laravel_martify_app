@@ -53,8 +53,6 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
-
-
     /**
      * This function handles user login : Ok 
      */
