@@ -15,8 +15,66 @@ class DashboardController extends Controller
     /**
      * This function handles the data to be sent to the user dashboard view
      */
+    // public function index()
+    // {
+    //     // Get the authenticated user
+    //     $user = Auth::user();
+
+    //     // Fetch total number of orders
+    //     $totalOrders = DB::table('orders')->count();
+
+    //     // Calculate order growth percentage
+    //     $previousOrderCount = DB::table('orders')
+    //         ->where('created_at', '<', now()->subYear())
+    //         ->count();
+    //     $orderGrowthPercentage = $previousOrderCount > 0
+    //         ? (($totalOrders - $previousOrderCount) / $previousOrderCount) * 100
+    //         : 0;
+
+    //     // Fetch total number of active products
+    //     $totalActiveProducts = DB::table('products')
+    //         ->where('status', 'available')
+    //         ->count();
+
+    //     // Fetch total number of sold products
+    //     $totalSoldProducts = DB::table('products')
+    //         ->where('status', 'sold')
+    //         ->count();
+
+    //     // Calculate sold products growth percentage
+    //     $previousSoldProductsCount = DB::table('products')
+    //         ->where('status', 'sold')
+    //         ->where('updated_at', '<', now()->subYear())
+    //         ->count();
+    //     $soldProductsGrowthPercentage = $previousSoldProductsCount > 0
+    //         ? (($totalSoldProducts - $previousSoldProductsCount) / $previousSoldProductsCount) * 100
+    //         : 0;
+
+    //     // Fetch total number of active blog posts
+    //     $totalActivePosts = DB::table('posts')
+    //         ->where('user_id', Auth::user()->id)
+    //         ->count();
+
+    //     // Fetch product data
+    //     $products = Product::latest()->get();
+
+    //     // Return view with data
+    //     return view('users.dashboard', [
+    //         'totalOrders' => $totalOrders,
+    //         'orderGrowthPercentage' => number_format($orderGrowthPercentage, 2),
+    //         'totalActiveProducts' => $totalActiveProducts,
+    //         'totalSoldProducts' => $totalSoldProducts,
+    //         'soldProductsGrowthPercentage' => number_format($soldProductsGrowthPercentage, 2),
+    //         'totalActivePosts' => $totalActivePosts,
+    //         'products' => $products,
+    //         'user' => $user,
+    //     ]);
+    // }
     public function index()
     {
+        // Get the authenticated user
+        $user = Auth::user();
+
         // Fetch total number of orders
         $totalOrders = DB::table('orders')->count();
 
@@ -28,35 +86,37 @@ class DashboardController extends Controller
             ? (($totalOrders - $previousOrderCount) / $previousOrderCount) * 100
             : 0;
 
-        // Fetch total number of active products
+        // Fetch total number of active products published by the authenticated user
         $totalActiveProducts = DB::table('products')
             ->where('status', 'available')
+            ->where('user_id', $user->id) // Add this line to filter by the authenticated user
             ->count();
 
-        // Fetch total number of sold products
+        // Fetch total number of sold products published by the authenticated user
         $totalSoldProducts = DB::table('products')
             ->where('status', 'sold')
+            ->where('user_id', $user->id) // Add this line to filter by the authenticated user
             ->count();
 
-        // Calculate sold products growth percentage
+        // Calculate sold products growth percentage for the authenticated user
         $previousSoldProductsCount = DB::table('products')
             ->where('status', 'sold')
+            ->where('user_id', $user->id) // Add this line to filter by the authenticated user
             ->where('updated_at', '<', now()->subYear())
             ->count();
         $soldProductsGrowthPercentage = $previousSoldProductsCount > 0
             ? (($totalSoldProducts - $previousSoldProductsCount) / $previousSoldProductsCount) * 100
             : 0;
 
-        // Fetch total number of active blog posts
+        // Fetch total number of active blog posts by the authenticated user
         $totalActivePosts = DB::table('posts')
-            ->where('user_id', Auth::user()->id)
+            ->where('user_id', $user->id) // Add this line to filter by the authenticated user
             ->count();
 
-        // Fetch product data
-        $products = Product::latest()->get();
-
-        // Get the authenticated user
-        $user = Auth::user();
+        // Fetch product data for the authenticated user
+        $products = Product::where('user_id', $user->id) // Add this line to filter by the authenticated user
+            ->latest()
+            ->get();
 
         // Return view with data
         return view('users.dashboard', [
@@ -70,6 +130,7 @@ class DashboardController extends Controller
             'user' => $user,
         ]);
     }
+
 
     public function orders()
     {

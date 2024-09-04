@@ -1,7 +1,6 @@
 <x-dashboard :email="$user->email" :image="$user->profile_picture">
     <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <!-- Card for Total Orders -->
             <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                 <div class="p-4 md:p-5">
                     <div class="flex items-center gap-x-2">
@@ -121,13 +120,11 @@
             </div>
         </div>
 
-        <!-- Products Table -->
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
                     <div
                         class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-neutral-800 dark:border-neutral-700">
-                        <!-- Header -->
                         <div
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
                             <div>
@@ -154,9 +151,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Header -->
 
-                        <!-- Table -->
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                             <thead class="bg-gray-50 dark:bg-neutral-800">
                                 <tr>
@@ -229,6 +224,8 @@
                                         <td class="size-px whitespace-nowrap">
                                             <div class="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3">
                                                 <div class="flex items-center gap-x-3">
+                                                    <img src="{{ asset('storage/' . $product->image_1) }}"
+                                                        alt="blog cover image" class="w-10 h-10">
                                                     <span
                                                         class="block text-md font-semibold text-gray-800 dark:text-neutral-200">{{ $product->name }}</span>
                                                 </div>
@@ -279,9 +276,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <!-- End Table -->
 
-                        <!-- Footer -->
                         <div
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
                             <div>

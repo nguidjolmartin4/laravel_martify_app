@@ -103,6 +103,8 @@
                                     <td class="size-px whitespace-nowrap">
                                         <div class="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3">
                                             <div class="flex items-center gap-x-3">
+                                                <img src="{{ asset('storage/' . $post->cover_image) }}"
+                                                    alt="blog cover image" class="w-10 h-10">
                                                 <span
                                                     class="block text-md font-semibold text-gray-800 dark:text-neutral-200">{{ Str::words($post->title, 5) }}</span>
                                             </div>

@@ -58,14 +58,10 @@ class PostController extends Controller
             $cover_image_path = Storage::disk('public')->put('images/posts_images', $request->cover_image);
         }
 
-        // In your PostController or wherever you handle the request
-        $body = $request->input('body');
-        $purifiedBody = app('purifier')->purify($body);
-
         // Create a post
         $post = Auth::user()->posts()->create([
             'title' => $request->title,
-            'body' => $purifiedBody,
+            'body' => $request->body,
             'cover_image' => $cover_image_path
         ]);
 
@@ -120,13 +116,6 @@ class PostController extends Controller
             $post->update(['cover_image' => $coverImage]);
         }
 
-        // In your PostController or wherever you handle the request
-        $body = $request->input('body');
-        $purifiedbody = app('purifier')->purify($body);
-
-        // Save to database
-        $post->body = $purifiedbody;
-
         $post->update($request->only('title', 'body'));
 
         // Redirect back with a success message
@@ -152,10 +141,10 @@ class PostController extends Controller
     /**
      * Retrieve all the posts of the current user that are present in the database
      */
-    public function all_posts()
+    public function all_posts(User $user)
     {
-        $posts = Auth::user()->posts;
         $user = Auth::user();
+        $posts = $user->posts()->latest()->get();
 
         return view('users.posts', ['posts' => $posts, 'user' => $user]);
     }
