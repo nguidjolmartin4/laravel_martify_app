@@ -1,7 +1,7 @@
 <x-form>
     <main id="content" class="w-full max-w-xl mx-auto p-6">
 
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-md">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
                     <h1 class="block text-3xl font-bold text-gray-800">Welcome back</h1>
@@ -15,8 +15,8 @@
                 </div>
 
                 <div class="mt-5">
-                    <button type="button" disabled
-                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ">
+                    <a href="{{ route('google.redirect') }}"
+                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ">
                         <svg class="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                             <path
                                 d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
@@ -32,14 +32,15 @@
                                 fill="#EB4335"></path>
                         </svg>
                         Login with Google
-                    </button>
+                    </a>
 
                     <div
                         class="py-3 flex items-center text-md text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 ">
                         Or</div>
 
                     <!-- Form -->
-                    <form action="{{ route('user.login') }}" method="post">
+                    <form action="{{ route('user.login') }}" method="post" x-data="formSubmit"
+                        @submit.prevent="submit">
                         @csrf
                         <input type="hidden" name="login_type" value="user">
                         <div class="grid gap-y-4">
@@ -48,7 +49,7 @@
                                 <label for="email" class="block mb-2 text-md font-medium">Email address</label>
                                 <div class="relative">
                                     <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
                                             ring-red-600 shadow-red-600
                                         @enderror "
                                         required="" autocomplete="email">
@@ -75,7 +76,7 @@
                                 </div>
                                 <div class="relative">
                                     <input type="password" id="password" name="password"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                         required="" autocomplete="current-password">
@@ -117,8 +118,8 @@
                                 <label for="remember" class="text-md font-medium">Remember me</label>
                             </div>
 
-                            <button type="submit"
-                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Login</button>
+                            <button type="submit" x-ref="btn"
+                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50 disabled:pointer-events-none">Login</button>
                         </div>
                     </form>
                     <!-- End Form -->
@@ -202,7 +203,7 @@
         role="dialog" tabindex="-1" aria-labelledby="hs-focus-management-modal-label">
         <div
             class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-            <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
+            <div class="flex flex-col bg-white border shadow-md rounded-xl pointer-events-auto">
                 <div class="flex justify-between items-center py-3 px-4 border-b">
                     <h3 id="hs-focus-management-modal-label" class="font-bold text-gray-800">
                         Admin Dashboard Access
@@ -219,13 +220,14 @@
                         </svg>
                     </button>
                 </div>
-                <form action="{{ route('user.login') }}" method="post">
+                <form action="{{ route('user.login') }}" method="post" x-data="formSubmit"
+                    @submit.prevent="submit">
                     @csrf
                     <input type="hidden" name="login_type" value="admin">
 
                     <div class="p-4 overflow-y-auto">
                         <!-- Form Group -->
-                        <div>
+                        <div class="">
                             <div class="flex justify-between items-center">
                                 <label for="passkey" class="block text-md mb-2 ">Enter admin password</label>
                                 <a class="inline-flex items-center text-md text-blue-600 decoration-0.5 hover:underline focus:outline-none focus:underline font-medium "
@@ -233,13 +235,13 @@
                             </div>
                             <div class="relative">
                                 <input type="password" id="passkey" name="passkey"
-                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                     required="" autocomplete="current-password">
                                 <button type="button"
                                     data-hs-toggle-password='{
                                         "target": "#passkey"
                                       }'
-                                    class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600 ">
+                                    class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md hover:outline-none hover:text-blue-600 ">
                                     <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -265,12 +267,12 @@
 
                     <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t">
                         <button type="button"
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-overlay="#hs-focus-management-modal">
                             Cancel
                         </button>
-                        <button type="submit"
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        <button type="submit" x-ref="btn"
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
                             Login
                         </button>
                     </div>

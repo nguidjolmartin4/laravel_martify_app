@@ -74,7 +74,7 @@
             <div class="flex flex-wrap items-center gap-3">
                 <div class="hs-dropdown [--placement:top-left] relative inline-flex">
                     <button id="hs-footer-language-dropdown" type="button"
-                        class="hs-dropdown-toggle py-2 px-3 inline-flex items-center gap-x-2 text-md rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                        class="hs-dropdown-toggle py-2 px-3 inline-flex items-center gap-x-2 text-md rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                         aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                         <svg class="size-3 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us1"
                             viewBox="0 0 512 512">

@@ -33,8 +33,8 @@ class ResetPasswordController extends Controller
     {
         $request->validate([
             'token' => 'required',
-            'password' => ['required', 'email'],
-            'email' => ['required', 'min:8', 'confirmed'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed'],
         ]);
 
         $status = Password::reset(

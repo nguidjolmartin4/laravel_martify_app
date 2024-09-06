@@ -1,1 +1,13 @@
-@import url("./main.min.css");
+@import url("./switzer.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("./main.min.css"); */
+
+*,
+*::before,
+*::after {
+    font-family: "Switzer-Variable" !important;
+}

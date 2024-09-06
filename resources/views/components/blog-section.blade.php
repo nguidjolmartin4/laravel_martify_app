@@ -21,7 +21,7 @@
                         {{ $post->title }}
                     </a>
                     <p class="mt-5 text-gray-600 ">
-                        {{ Str::words($post->body, 15) }}
+                        {{ \Illuminate\Support\Str::words($post->body, 15) }}
                     </p>
                 </div>
                 <div class="mt-auto flex items-center gap-x-3">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="mt-12 text-center">
-        <a class="py-3 px-4 inline-flex items-center gap-x-1 text-md font-medium rounded-full border border-gray-200 bg-white text-blue-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+        <a class="py-3 px-4 inline-flex items-center gap-x-1 text-md font-medium rounded-full border border-gray-200 bg-white text-blue-600 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
             href="{{ route('posts.index') }}">
             Read more
             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"

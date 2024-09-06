@@ -1,7 +1,7 @@
 <x-form>
     <main id="content" class="w-full max-w-xl mx-auto p-6">
 
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm ">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-md ">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
                     <h1 class="block text-2xl font-bold text-gray-800 ">Hello and Welcome</h1>
@@ -15,8 +15,8 @@
                 </div>
 
                 <div class="mt-5">
-                    <button type="button" disabled
-                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ">
+                    <a href="{{ route('google.redirect') }}"
+                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ">
                         <svg class="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                             <path
                                 d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
@@ -32,14 +32,15 @@
                                 fill="#EB4335"></path>
                         </svg>
                         Sign up with Google
-                    </button>
+                    </a>
 
                     <div
                         class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 ">
                         Or</div>
 
                     <!-- Form -->
-                    <form action="{{ route('user.register') }}" method="post">
+                    <form action="{{ route('user.register') }}" method="post" x-data="formSubmit"
+                        @submit.prevent="submit">
                         @csrf
 
                         <div class="grid gap-y-4">
@@ -50,7 +51,7 @@
                                     <div class="relative">
                                         <input type="text" id="first_name" name="first_name"
                                             value="{{ old('first_name') }}"
-                                            class="w-full py-3 px-4 inline-flex justify-center items-center  text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('first_name')
+                                            class="w-full py-3 px-4 inline-flex justify-center items-center  text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('first_name')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                             autocomplete="name" required>
@@ -73,7 +74,7 @@
                                     <div class="relative">
                                         <input type="text" id="last_name" name="last_name"
                                             value="{{ old('last_name') }}"
-                                            class="w-full py-3 px-4 inline-flex justify-center items-center text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('last_name')
+                                            class="w-full py-3 px-4 inline-flex justify-center items-center text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('last_name')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                             autocomplete="name" required>
@@ -99,7 +100,7 @@
                                 <label for="email" class="block text-md mb-2 ">Email address</label>
                                 <div class="relative">
                                     <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                         required="" autocomplete="email">
@@ -124,7 +125,7 @@
                                 <label for="password" class="block text-md mb-2 ">Password</label>
                                 <div class="relative">
                                     <input type="password" id="password" name="password"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
                                             ring-red-600 shadow-red-600
                                         @enderror">
                                     <button type="button"
@@ -133,8 +134,8 @@
                                           }'
                                         class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-none focus:text-blue-600">
                                         <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
+                                            fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24">
                                             </path>
                                             <path class="hs-password-active:hidden"
@@ -245,7 +246,7 @@
                                     Password</label>
                                 <div class="relative">
                                     <input type="password" id="password_confirmation" name="password_confirmation"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                         required="">
@@ -357,7 +358,7 @@
                             </div>
                             <!-- End Checkbox -->
 
-                            <button type="submit"
+                            <button type="submit" x-ref="btn"
                                 class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign
                                 up</button>
                         </div>

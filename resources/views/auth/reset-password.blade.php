@@ -1,30 +1,28 @@
 <x-form>
     <main id="content" class="w-full max-w-xl mx-auto p-6">
 
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm ">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-md ">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
                     <h1 class="block text-2xl font-bold text-gray-800 ">Reset your password</h1>
                 </div>
 
                 <div class="mt-5">
-                    <!-- Form -->
                     <form action="{{ route('password.update') }}" method="post">
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="grid gap-y-4">
-                            <!-- Form Group -->
                             <div>
                                 <label for="email" class="block text-md mb-2 ">Email address</label>
                                 <div class="relative">
                                     <input type="email" id="email" name="email" value="{{ old('email') }}"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('email')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                         required="" autocomplete="email">
                                     @error('email')
-                                        <div class="absolute inset-y-0 end-0 mt-3 mr-3 pointer-events-none">
+                                        <div class="absolute inset-y-0 end-0 mt-3 ml-3 pointer-events-none">
                                             <svg class="size-5 text-red-500" width="16" height="16"
                                                 fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                                                 <path
@@ -37,14 +35,12 @@
                                     <p class="text-xs text-red-600 mt-2" id="email-error"> {{ $message }} </p>
                                 @enderror
                             </div>
-                            <!-- End Form Group -->
 
-                            <!-- Form Group -->
                             <div>
                                 <label for="password" class="block text-md mb-2 ">Password</label>
                                 <div class="relative">
                                     <input type="password" id="password" name="password"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
                                             ring-red-600 shadow-red-600
                                         @enderror">
                                     <button type="button"
@@ -161,15 +157,13 @@
                                 </div>
 
                             </div>
-                            <!-- End Form Group -->
 
-                            <!-- Form Group -->
                             <div>
                                 <label for="password_confirmation" class="block text-md mb-2 ">Confirm
                                     Password</label>
                                 <div class="relative">
                                     <input type="password" id="password_confirmation" name="password_confirmation"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
+                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none @error('password')
                                             ring-red-600 shadow-red-600
                                         @enderror"
                                         required="">
@@ -201,11 +195,10 @@
                             </div>
 
                             <button type="submit"
-                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign
-                                up</button>
+                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Reset
+                                Password</button>
                         </div>
                     </form>
-                    <!-- End Form -->
                 </div>
             </div>
         </div>

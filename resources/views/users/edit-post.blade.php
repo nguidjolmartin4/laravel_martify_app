@@ -32,7 +32,7 @@
                     <div class="sm:col-span-9">
                         <label for="blog_cover_image" class="sr-only">Choose a cover image</label>
                         <input type="file" name="cover_image" id="blog_cover_image"
-                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                 file:border-0
               file:bg-gray-100 file:me-4
               file:py-3 file:px-4
@@ -47,7 +47,7 @@
 
                     <div class="sm:col-span-9">
                         <input id="blog_title" type="text" name="title" value="{{ old('title') }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm text-md rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md text-md rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                     </div>
 
                     <div class="sm:col-span-3">
@@ -66,7 +66,7 @@
 
                     <div class="sm:col-span-3">
                         <button type="reset"
-                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                             Cancel
                         </button>
                     </div>

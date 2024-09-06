@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeMail;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -66,10 +68,9 @@ class PostController extends Controller
         ]);
 
         // Send email when users create a post (for practice)
-        // Mail::to(Auth::user())->send(new WelcomeMail(Auth::user(), $post));
+        Mail::to(Auth::user())->send(new WelcomeMail(Auth::user(), $post));
 
-        // Redirect back to dashboard
-        // return redirect()->route('user.dashboard')->with('success', 'Your post was created successfully!');
+        // Redirect back to add post form
         return back()->with('success', 'Your post was created successfully!');
     }
 

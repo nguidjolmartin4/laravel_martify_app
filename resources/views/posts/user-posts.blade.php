@@ -15,7 +15,7 @@
                         all the blog posts made by {{ $user->first_name }} </p>
                 </div>
                 <button
-                    class="py-3 px-3 flex rounded-md bg-blue-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-blue-700">
+                    class="py-3 px-3 flex rounded-md bg-blue-600 items-center shadow-md shadow-transparent transition-all duration-500 hover:bg-blue-700">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

@@ -20,7 +20,7 @@ class WelcomeMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public User $user) {}
+    public function __construct(public User $user, public Post $post) {}
 
     /**
      * Get the message envelope.
@@ -50,7 +50,7 @@ class WelcomeMail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromStorageDisk('public', 'email_image/default.png')
+            Attachment::fromStorageDisk('public', $this->post->cover_image),
         ];
     }
 }

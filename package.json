@@ -21,6 +21,7 @@
         "@preline/strong-password": "^2.4.1",
         "@preline/toggle-password": "^2.4.1",
         "@preline/tooltip": "^2.4.1",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
         "datatables.net-dt": "^2.1.4",
         "preline": "^2.4.1"
     }

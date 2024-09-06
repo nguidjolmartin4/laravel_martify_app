@@ -20,9 +20,9 @@ class SendSubscriberEmail
      */
     public function handle(UserSubscribed $event): void
     {
-        Mail::raw('Thank you subsccribing to our newsletter', function ($message) use ($event) {
+        Mail::raw('Thanks for subscribing to our newsletter!', function ($message) use ($event) {
             $message->to($event->user->email);
-            $message->subject('Thank you');
+            $message->subject('Thanks for subscribing!');
         });
     }
 }
