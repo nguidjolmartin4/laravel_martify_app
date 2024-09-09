@@ -1,5 +1,6 @@
 import "./bootstrap";
 import "preline";
+import "flowbite";
 import "./preline.min.js";
 import "./lodash.min.js";
 

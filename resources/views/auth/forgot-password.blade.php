@@ -28,7 +28,7 @@
                                             class="text-gray-800 font-semibold dark:text-white">
                                             Success.
                                         </h3>
-                                        <p class="text-sm text-gray-700 dark:text-neutral-400">
+                                        <p class="text-md text-gray-700 dark:text-neutral-400">
                                             {{ session('status') }}
                                         </p>
                                     </div>

@@ -24,7 +24,7 @@
         </p>
 
         <a href="http://localhost:8000/dashboard/posts"
-            class="px-6 py-2 mt-8 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-700 focus:ring-opacity-80">
+            class="px-6 py-2 mt-8 text-md font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-700 focus:ring-opacity-80">
             Check your dahsboard
         </a>
     </main>

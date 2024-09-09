@@ -16,10 +16,10 @@ class Category extends Model
     ];
 
     /**
-     * Get the subcategories for the category.
+     * Get the products for the category.
      */
-    public function subcategories()
+    public function products()
     {
-        return $this->hasMany(Subcategory::class);
+        return $this->hasMany(Product::class);
     }
 }

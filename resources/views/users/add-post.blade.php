@@ -56,7 +56,7 @@
                         <div class="inline-block">
                             <label for="blog_body" class="inline-block text-md font-medium text-gray-500 mt-2.5">
                                 Blog body
-                                <p class="text-sm text-gray-400">Note : for text formatting, you can use the html
+                                <p class="text-md text-gray-400">Note : for text formatting, you can use the html
                                     syntax for that!</p>
                             </label>
                         </div>

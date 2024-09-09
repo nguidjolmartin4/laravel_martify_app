@@ -11,7 +11,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('brand');
             $table->text('description');
@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('image_3')->nullable();
             $table->string('image_4')->nullable();
             $table->string('image_5')->nullable();
-            $table->enum('status', ['available', 'sold',])->default('available');
+            $table->enum('status', ['available', 'sold', 'out-of-stock'])->default('available');
             $table->timestamps();
         });
     }

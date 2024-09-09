@@ -34,19 +34,11 @@ class Product extends Model
     }
 
     /**
-     * Get the subcategory that the product belongs to.
-     */
-    public function subcategory()
-    {
-        return $this->belongsTo(Subcategory::class);
-    }
-
-    /**
-     * Get the category that the product belongs to through the subcategory.
+     * Get the category that the product belongs to.
      */
     public function category()
     {
-        return $this->hasOneThrough(Category::class, Subcategory::class, 'id', 'id', 'subcategory_id', 'category_id');
+        return $this->belongsTo(Category::class);
     }
 
     /**
