@@ -126,5 +126,6 @@ return [
     'aliases' => [
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Str' => Illuminate\Support\Str::class,
     ],
 ];

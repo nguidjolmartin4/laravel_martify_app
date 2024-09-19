@@ -21,60 +21,70 @@ class DatabaseSeeder extends Seeder
                 'last_name' => 'Martin',
                 'email' => 'nguidjol.martin@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Nkayou',
                 'last_name' => 'Frank',
                 'email' => 'nkayou.frank@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Egbe',
                 'last_name' => 'Ngu',
                 'email' => 'egbe.ngu@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Joram',
                 'last_name' => 'Kontchou',
                 'email' => 'joram.kontchou@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Ngatga',
                 'last_name' => 'Ted',
                 'email' => 'ngatga.ted@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Bessala',
                 'last_name' => 'Frank',
                 'email' => 'bessala.frank@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Batind',
                 'last_name' => 'Alain',
                 'email' => 'batind.alain@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'John',
                 'last_name' => 'Doe',
                 'email' => 'john.doe@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Jesus',
                 'last_name' => 'Christ',
                 'email' => 'jesus.chris@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
             [
                 'first_name' => 'Raoul',
                 'last_name' => 'Wafo',
                 'email' => 'raoul.wafo@gmail.com',
                 'password' => '123123123',
+                'profile_picture' => 'images/profile_pictures/default-profile.webp'
             ],
         ];
 
@@ -86,6 +96,7 @@ class DatabaseSeeder extends Seeder
                 'last_name' => $user['last_name'],
                 'email' => $user['email'],
                 'password' => Hash::make($user['password']),
+                'profile_picture' => $user['profile_picture'],
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);

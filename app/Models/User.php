@@ -29,6 +29,7 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
         'telephone',
         'profile_picture',
         'password',
+        'google_id'
     ];
 
     /**

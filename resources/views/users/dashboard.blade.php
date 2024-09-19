@@ -1,7 +1,7 @@
 <x-dashboard :email="$user->email" :image="$user->profile_picture">
     <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div class="flex flex-col bg-white border shadow-md rounded-xl">
+            <div class="flex flex-col bg-white border shadow-sm rounded-xl">
                 <div class="p-4 md:p-5">
                     <div class="flex items-center gap-x-2">
                         <p class="text-xs uppercase tracking-wide text-gray-500">
@@ -18,7 +18,7 @@
                                     <path d="M12 17h.01" />
                                 </svg>
                                 <span
-                                    class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-md"
+                                    class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm"
                                     role="tooltip">
                                     The total number of orders
                                 </span>
@@ -46,7 +46,7 @@
             </div>
 
             {{-- Card for Total Active Products on the website --}}
-            <div class="flex flex-col bg-white border shadow-md rounded-xl ">
+            <div class="flex flex-col bg-white border shadow-sm rounded-xl ">
                 <div class="p-4 md:p-5">
                     <div class="flex items-center gap-x-2">
                         <p class="text-xs uppercase tracking-wide text-gray-500">
@@ -63,7 +63,7 @@
             </div>
 
             {{-- Card for Total number of product sold on the website --}}
-            <div class="flex flex-col bg-white border shadow-md rounded-xl">
+            <div class="flex flex-col bg-white border shadow-sm rounded-xl">
                 <div class="p-4 md:p-5">
                     <div class="flex items-center gap-x-2">
                         <p class="text-xs uppercase tracking-wide text-gray-500">
@@ -80,7 +80,7 @@
                                     <path d="M12 17h.01" />
                                 </svg>
                                 <span
-                                    class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-md "
+                                    class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm "
                                     role="tooltip">
                                     The total number of products sold
                                 </span>
@@ -103,7 +103,7 @@
             </div>
 
             {{-- Card for Total Active Products on the website --}}
-            <div class="flex flex-col bg-white border shadow-md rounded-xl">
+            <div class="flex flex-col bg-white border shadow-sm rounded-xl">
                 <div class="p-4 md:p-5">
                     <div class="flex items-center gap-x-2">
                         <p class="text-xs uppercase tracking-wide text-gray-500">
@@ -123,7 +123,7 @@
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div class="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden ">
+                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden ">
                         <div
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200">
                             <div>
@@ -206,12 +206,14 @@
                             </thead>
 
                             <tbody class="divide-y divide-gray-200 ">
+                                <?php $i = 0; ?>
                                 @foreach ($products as $product)
+                                    <?php $i++; ?>
                                     <tr>
                                         <td class="size-px whitespace-nowrap">
                                             <div class="px-6 py-3">
                                                 <span
-                                                    class="sr-onlyblock text-md font-semibold text-gray-800">{{ $product->id }}</span>
+                                                    class="sr-onlyblock text-md font-semibold text-gray-800"><?php echo $i; ?></span>
                                             </div>
                                         </td>
                                         <td class="size-px whitespace-nowrap">
@@ -275,7 +277,7 @@
                             <div>
                                 <div class="inline-flex gap-x-2">
                                     <button type="button"
-                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 ">
+                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 ">
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -286,7 +288,7 @@
                                     </button>
 
                                     <button type="button"
-                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50">
+                                        class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50">
                                         Next
                                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none"

@@ -30,32 +30,6 @@
                     </div>
 
                     <div>
-                        <h6 class="mb-4 text-md font-semibold uppercase text-gray-900 ">Rewards</h6>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="#" title="" class="text-gray-500 hover:text-gray-900 ">Reward
-                                    Points</a>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="text-gray-500 hover:text-gray-900 ">Referral
-                                    Program</a>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="text-gray-500 hover:text-gray-900 ">VIP
-                                    Membership</a>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="text-gray-500 hover:text-gray-900 ">Exclusive
-                                    Offers</a>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="text-gray-500 hover:text-gray-900 ">Redeem
-                                    Rewards</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
                         <h6 class="mb-4 text-md font-semibold uppercase text-gray-900 ">Trade Assurance
                         </h6>
                         <ul class="space-y-3">
@@ -137,15 +111,17 @@
 
                 <div class="mt-6 w-full md:mt-8 lg:mt-0 lg:max-w-lg">
                     <div class="space-y-5 rounded-lg bg-gray-50 p-6 ">
-                        <a href="{{ route('login') }}"
-                            class="text-base font-medium text-blue-700 underline hover:no-underline ">
-                            Sign In</a>
-                        <span>or</span>
-                        <a href="{{ route('register') }}"
-                            class="text-base font-medium text-blue-700 underline hover:no-underline ">
-                            Create Account </a>
+                        @guest
+                            <a href="{{ route('login') }}"
+                                class="text-base font-medium text-blue-700 underline hover:no-underline ">
+                                Sign In</a>
+                            <span>or</span>
+                            <a href="{{ route('register') }}"
+                                class="text-base font-medium text-blue-700 underline hover:no-underline ">
+                                Create Account </a>
 
-                        <hr class="border-gray-200 " />
+                            <hr class="border-gray-200 " />
+                        @endguest
 
                         <form action="#">
                             <div class="items-end space-y-4 sm:flex sm:space-y-0">
@@ -155,7 +131,7 @@
                                     <input
                                         class="block w-full rounded-lg border border-gray-300 bg-white p-3 text-md text-gray-900 focus:border-blue-500 focus:ring-blue-500  sm:w-96 lg:w-full"
                                         placeholder="Enter your email address" type="email" id="email"
-                                        required="" />
+                                        required="" autocomplete="email" />
                                 </div>
                                 <div>
                                     <button type="submit"

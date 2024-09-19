@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <x-navigation />
+    {{-- <x-navigation /> --}}
     {{ $slot }}
-    {{-- <x-footer /> --}}
+    <x-footer />
 
     <script src="//unpkg.com/alpinejs" defer></script>
 </body>

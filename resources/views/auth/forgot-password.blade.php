@@ -1,77 +1,49 @@
 <x-form>
-    <main id="content" class="w-full max-w-xl mx-auto p-6">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-md">
-            <div class="p-4 sm:p-7">
-                {{-- Session Messages --}}
-                @if (session('status'))
-                    <div class="absolute top-0 left-0 mt-4 ml-4">
-                        <div class="space-y-5">
-                            <div class="bg-teal-50 border-t-2 border-teal-500 rounded-lg p-4 dark:bg-teal-800/30"
-                                role="alert" tabindex="-1" aria-labelledby="hs-bordered-success-style-label">
-                                <div class="flex">
-                                    <div class="shrink-0">
-                                        <span
-                                            class="inline-flex justify-center items-center size-8 rounded-full border-4 border-teal-100 bg-teal-200 text-teal-800 dark:border-teal-900 dark:bg-teal-800 dark:text-teal-400">
-                                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path
-                                                    d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z">
-                                                </path>
-                                                <path d="m9 12 2 2 4-4"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="ms-3">
-                                        <h3 id="hs-bordered-success-style-label"
-                                            class="text-gray-800 font-semibold dark:text-white">
-                                            Success.
-                                        </h3>
-                                        <p class="text-md text-gray-700 dark:text-neutral-400">
-                                            {{ session('status') }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+                    alt="logo">
+                Flowbite
+            </a>
+            <div
+                class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+                <h1
+                    class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Forgot your password?
+                </h1>
+                <p class="font-light text-gray-500 dark:text-gray-400">Don't fret! Just type in your email and we will
+                    send you a code to reset your password!</p>
+                <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="{{ route('password.request') }}"
+                    x-data="formSubmit" @submit.prevent="submit">
+                    @csrf
+
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                            email</label>
+                        <input type="email" name="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="name@company.com" required="">
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="terms" aria-describedby="terms" type="checkbox"
+                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                                required="">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a
+                                    class="font-medium text-blue-600 hover:underline dark:text-blue-500"
+                                    href="#">Terms and Conditions</a></label>
                         </div>
                     </div>
-                @endif
 
-                <div class="text-center">
-                    <h1 class="block text-2xl font-bold text-gray-800">Request a password reset email</h1>
-                    <p class="mt-2 text-md text-gray-600 ">
-                        Remember your password?
-                        <a class="text-blue-600 decoration-2 focus:outline-none font-medium"
-                            href="{{ route('login') }}">
-                            Sign in here
-                        </a>
-                    </p>
-                </div>
-
-                <div class="mt-5">
-                    <form action="{{ route('password.request') }}" method="post" x-data="formSubmit"
-                        @submit.prevent="submit">
-                        @csrf
-                        <div class="grid gap-y-4">
-                            <div>
-                                <label for="email" class="block text-md mb-2 ">Email address</label>
-                                <div class="relative">
-                                    <input type="email" id="email" name="email"
-                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
-                                        required="" autocomplete="email">
-                                </div>
-                            </div>
-
-                            <button type="submit" x-ref="btn"
-                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Reset
-                                password
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
+                    <button type="submit" x-ref="btn"
+                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reset
+                        password</button>
+                </form>
             </div>
         </div>
-    </main>
+    </section>
 </x-form>

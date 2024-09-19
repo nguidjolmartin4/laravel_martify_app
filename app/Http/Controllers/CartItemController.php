@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CartItem;
 use App\Http\Requests\StoreCartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
+use Illuminate\Http\Request;
 
 class CartItemController extends Controller
 {
@@ -27,7 +28,7 @@ class CartItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCartItemRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,7 +52,7 @@ class CartItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCartItemRequest $request, CartItem $cartItem)
+    public function update(Request $request, CartItem $cartItem)
     {
         //
     }

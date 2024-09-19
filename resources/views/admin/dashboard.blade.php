@@ -179,7 +179,7 @@
                                 alt="Avatar">
                         </button>
 
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-sm rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg dark:bg-neutral-700">
                                 <p class="text-md text-gray-500 dark:text-neutral-500">Signed in as</p>
@@ -621,7 +621,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <!-- Card -->
                 <div
-                    class="flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <div class="flex items-center gap-x-2">
                             <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -638,7 +638,7 @@
                                         <path d="M12 17h.01" />
                                     </svg>
                                     <span
-                                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-md dark:bg-neutral-700"
+                                        class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700"
                                         role="tooltip">
                                         The number of daily users
                                     </span>
@@ -669,7 +669,7 @@
 
                 <!-- Card -->
                 <div
-                    class="flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <div class="flex items-center gap-x-2">
                             <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -688,7 +688,7 @@
 
                 <!-- Card -->
                 <div
-                    class="flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <div class="flex items-center gap-x-2">
                             <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -719,7 +719,7 @@
 
                 <!-- Card -->
                 <div
-                    class="flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <div class="flex items-center gap-x-2">
                             <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -741,7 +741,7 @@
             <div class="grid lg:grid-cols-2 gap-4 sm:gap-6">
                 <!-- Card -->
                 <div
-                    class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <!-- Header -->
                     <div class="flex justify-between items-center">
                         <div>
@@ -774,7 +774,7 @@
 
                 <!-- Card -->
                 <div
-                    class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-md rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                    class="p-4 md:p-5 min-h-[410px] flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <!-- Header -->
                     <div class="flex justify-between items-center">
                         <div>
@@ -811,7 +811,7 @@
                 <div class="-m-1.5 overflow-x-auto">
                     <div class="p-1.5 min-w-full inline-block align-middle">
                         <div
-                            class="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden dark:bg-neutral-800 dark:border-neutral-700">
+                            class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-neutral-800 dark:border-neutral-700">
                             <!-- Header -->
                             <div
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
@@ -826,7 +826,7 @@
 
                                 <div>
                                     <div class="inline-flex gap-x-2">
-                                        <a class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                        <a class="py-2 px-3 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                             href="#">
                                             View all
                                         </a>
@@ -1894,7 +1894,7 @@
                                 <div>
                                     <div class="inline-flex gap-x-2">
                                         <button type="button"
-                                            class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                                            class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1905,7 +1905,7 @@
                                         </button>
 
                                         <button type="button"
-                                            class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                                            class="py-1.5 px-2 inline-flex items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                                             Next
                                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
                                                 width="24" height="24" viewBox="0 0 24 24" fill="none"

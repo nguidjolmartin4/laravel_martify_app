@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url("./main.min.css"); */
-
 *,
 *::before,
 *::after {

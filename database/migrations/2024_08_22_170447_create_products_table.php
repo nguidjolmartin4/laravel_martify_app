@@ -16,8 +16,8 @@ class CreateProductsTable extends Migration
             $table->string('brand');
             $table->text('description');
             $table->enum('condition', ['new', 'used'])->default('new');
-            $table->decimal('price', 10, 2);
-            $table->integer('stock_quantity');
+            $table->unsignedInteger('price');
+            $table->unsignedInteger('stock_quantity');
             $table->string('image_1');
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();

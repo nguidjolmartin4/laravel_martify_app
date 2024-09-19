@@ -1,9 +1,6 @@
-<!-- Testimonials with Stats -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <!-- Grid -->
     <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center lg:justify-between">
         <div class="lg:col-span-5 lg:col-start-1">
-            <!-- Title -->
             <div class="mb-8">
                 <h2 class="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl">
                     It's all about speed
@@ -13,9 +10,7 @@
                     responses to you as soon as we can.
                 </p>
             </div>
-            <!-- End Title -->
 
-            <!-- Blockquote -->
             <blockquote class="relative">
                 <svg class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200"
                     width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -45,13 +40,10 @@
                     </div>
                 </footer>
             </blockquote>
-            <!-- End Blockquote -->
         </div>
-        <!-- End Col -->
 
         <div class="mt-10 lg:mt-0 lg:col-span-6 lg:col-end-13">
             <div class="space-y-6 sm:space-y-8">
-                <!-- List -->
                 <ul class="grid grid-cols-2 divide-y divide-y-2 divide-x divide-x-2 divide-gray-200 overflow-hidden">
                     <li class="flex flex-col -m-0.5 p-4 sm:p-8">
                         <div class="flex items-end gap-x-2 text-3xl sm:text-5xl font-bold text-gray-800 mb-2">
@@ -101,11 +93,7 @@
                         </p>
                     </li>
                 </ul>
-                <!-- End List -->
             </div>
         </div>
-        <!-- End Col -->
     </div>
-    <!-- End Grid -->
 </div>
-<!-- End Testimonials with Stats -->

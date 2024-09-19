@@ -10,12 +10,11 @@
 </head>
 
 <body>
-
+    <x-store.navigation />
 
     {{ $slot }}
-    <x-footer />
 
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <x-store.footer />
 </body>
 
 </html>

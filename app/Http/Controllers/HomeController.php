@@ -2,19 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
-use App\Models\SubCategory;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $subcategories = Subcategory::with('products')->take(4)->get();
-        $categories = Category::take(6)->get();
+        $electronics = Product::whereHas('category', function ($query) {
+            $query->where('name', 'Electronics');
+        })->take(4)->get();
 
-        return view('home', compact('categories', 'subcategories'));
+        $printers = Product::whereHas('category', function ($query) {
+            $query->where('name', 'Printers');
+        })->take(4)->get();
+
+        $watches = Product::whereHas('category', function ($query) {
+            $query->where('name', 'Watches');
+        })->take(4)->get();
+
+        $projectors = Product::whereHas('category', function ($query) {
+            $query->where('name', 'Projectors');
+        })->take(4)->get();
+
+        $others = Product::whereHas('category', function ($query) {
+            $query->where('name', 'Other');
+        })->take(4)->get();
+
+        $user = Auth::user();
+
+        // Pass data to the view
+        return view('store.index', [
+            'electronics' => $electronics,
+            'projectors' => $projectors,
+            'watches' => $watches,
+            'printers' => $printers,
+            'others' => $others,
+            'user' => $user
+        ]);
     }
+
 
     public function sell()
     {

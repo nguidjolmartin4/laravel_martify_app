@@ -1,7 +1,6 @@
 import "./bootstrap";
 import "preline";
 import "flowbite";
-import "./preline.min.js";
 import "./lodash.min.js";
 
 // Set form: x-data="formSubmit" @submit.prevent="submit" and button: x-ref="btn"
@@ -21,4 +20,8 @@ document.addEventListener("alpine:init", () => {
             this.$el.submit();
         },
     }));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("myCartDropdownButton1").click();
 });

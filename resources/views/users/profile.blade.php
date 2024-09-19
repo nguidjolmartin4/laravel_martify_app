@@ -117,10 +117,10 @@
                         <div class="sm:flex">
                             <input id="fullname" type="text" name="first_name" autocomplete="family-name" required
                                 value="{{ $user->first_name }}"
-                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500">
+                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500">
                             <input type="text" name="last_name" autocomplete="given-name" required
                                 value="{{ $user->last_name }}"
-                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 ">
+                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 ">
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                     <div class="sm:col-span-9">
                         <input id="email" type="email" name="email" autocomplete="email"
                             value="{{ $user->email }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md text-md rounded-lg focus:border-blue-500 focus:ring-blue-500">
+                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm text-md rounded-lg focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
                     <div class="sm:col-span-3">
@@ -188,13 +188,13 @@
 
                         <div class="sm:flex mt-2">
                             <input id="region" type="text" name="region" value="{{ $user->region }}"
-                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
+                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
                                 autocomplete="off" placeholder="Region">
                             <input id="city" type="text" name="city" value="{{ $user->city }}"
-                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
+                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
                                 autocomplete="off" placeholder="City">
                             <input id="address" type="text" name="address" value="{{ $user->address }}"
-                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
+                                class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-md relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 "
                                 autocomplete="off" placeholder="Addresse">
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                     <div class="sm:col-span-9">
                         <input id="telephone" type="text" name="telephone" autocomplete="tel"
                             value="{{ $user->telephone }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-900 shadow-md rounded-lg text-md focus:border-blue-500 focus:ring-blue-500 ">
+                            class="py-3 px-3 pe-11 block w-full border-gray-900 shadow-sm rounded-lg text-md focus:border-blue-500 focus:ring-blue-500 ">
                     </div>
 
                     <div class="sm:col-span-3">
@@ -222,7 +222,7 @@
                     <div class="sm:col-span-9">
                         <label for="profile-photo" class="sr-only">Choose file</label>
                         <input type="file" name="profile_picture" id="profile-photo"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4">
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4">
                     </div>
 
                     <div class="sm:col-span-3">
@@ -232,9 +232,9 @@
                     </div>
 
                     <div class="sm:col-span-9 ">
-                        @if (Illuminate\Support\Facades\Auth::user()->profile_picture)
-                            <img src="{{ asset('storage/' . Illuminate\Support\Facades\Auth::user()->profile_picture) }}"
-                                alt="Profile Picture" class="w-60 object-cover mx-auto rounded-md">
+                        @if (Auth::user()->profile_picture)
+                            <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture"
+                                class="w-60 object-cover mx-auto rounded-md">
                         @else
                             <img src="{{ asset('images/default-profile.png') }}" alt="Default Profile Picture"
                                 class="size-40 object-cover">
@@ -242,17 +242,14 @@
                     </div>
 
                     <div class="sm:col-span-3 my-6">
-                        <button type="reset"
-                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                            Cancel
+                        <button type="submit"
+                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 ">
+                            Save
                         </button>
                     </div>
 
                     <div class="sm:col-span-9 my-6">
-                        <button type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 ">
-                            Update user info
-                        </button>
+
                     </div>
                 </div>
             </form>
@@ -374,18 +371,13 @@
                     </div>
 
                     <div class="sm:col-span-3 my-6">
-                        <button type="reset"
-                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                            Cancel
-                        </button>
-                    </div>
-
-                    <div class="sm:col-span-9 my-6">
                         <button type="submit"
                             class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 ">
                             Update password
                         </button>
                     </div>
+
+                    <div class="sm:col-span-9 my-6"></div>
             </form>
         </div>
     </div>

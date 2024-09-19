@@ -39,7 +39,7 @@
                 class="text-blue-600 hover:underline dark:text-blue-400">manage your email preferences</a>.
         </p>
 
-        <p class="mt-3 text-gray-500 dark:text-gray-400">Copyright © {{ new Date() . getFullYear() }} Martify Online
+        <p class="mt-3 text-gray-500 dark:text-gray-400">Copyright © 2024 Martify Online
             Shopping 2024. All Rights
             Reserved.</p>
     </footer>

@@ -74,7 +74,7 @@
                             {{ $post->title }}
                         </a>
                         <p class="mt-5 text-gray-600 ">
-                            {{ \Illuminate\Support\Str::words($post->body, 15) }}
+                            {{ Str::words($post->body, 15) }}
                         </p>
                     </div>
                     <div class="mt-auto flex items-center gap-x-3">

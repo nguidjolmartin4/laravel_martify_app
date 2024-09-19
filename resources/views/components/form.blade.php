@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> {{ env('APP_NAME') }} </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body class="bg-gray-100 flex h-full items-center py-16">
+<body>
 
     {{ $slot }}
 

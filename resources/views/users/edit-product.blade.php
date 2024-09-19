@@ -4,7 +4,7 @@
         <!-- Card -->
         <div class="bg-white rounded-xl shadow p-4 sm:p-7">
             <!-- Section -->
-            <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('product.update') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-5">
@@ -23,7 +23,7 @@
                     <div class="sm:col-span-9">
                         <input id="product_name" type="text" name="name" autocomplete="name"
                             value="{{ old('name') }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md rounded-lg text-md focus:border-blue-500 focus:ring-blue-500">
+                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-md focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
                     <div class="sm:col-span-3">
@@ -86,7 +86,7 @@
 
                     <div class="sm:col-span-9">
                         <textarea id="description" type="text" name="description" rows="10" value="{{ old('description') }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md text-md rounded-lg focus:border-blue-500 focus:ring-blue-500 "></textarea>
+                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm text-md rounded-lg focus:border-blue-500 focus:ring-blue-500 "></textarea>
                     </div>
                     <!-- End Col -->
 
@@ -102,7 +102,7 @@
                     <div class="sm:col-span-9">
                         <input id="price" type="text" name="price" autocomplete="price"
                             value="{{ old('price') }}"
-                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-md rounded-lg text-md focus:border-blue-500 focus:ring-blue-500">
+                            class="py-3 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-md focus:border-blue-500 focus:ring-blue-500">
                     </div>
                     <!-- End Col -->
 
@@ -153,7 +153,7 @@
                                     data-hs-input-number-input="" name="stock_quantity">
                                 <div class="flex justify-end items-center gap-x-1.5">
                                     <button type="button"
-                                        class="size-6 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                        class="size-6 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                         tabindex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
                                         <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -162,7 +162,7 @@
                                         </svg>
                                     </button>
                                     <button type="button"
-                                        class="size-6 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                        class="size-6 inline-flex justify-center items-center gap-x-2 text-md font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                         tabindex="-1" aria-label="Increase" data-hs-input-number-increment="">
                                         <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg"
                                             width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -196,7 +196,7 @@
 
                     <div class="sm:col-span-9">
                         <input type="file" name="image_1" id="image_1"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                               file:bg-gray-50 file:border-0
                               file:me-4
                               file:py-3 file:px-4
@@ -211,7 +211,7 @@
 
                     <div class="sm:col-span-9">
                         <input type="file" name="image_2" id="image_2"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                               file:bg-gray-50 file:border-0
                               file:me-4
                               file:py-3 file:px-4
@@ -226,7 +226,7 @@
 
                     <div class="sm:col-span-9">
                         <input type="file" name="image_3" id="image_3"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                               file:bg-gray-50 file:border-0
                               file:me-4
                               file:py-3 file:px-4
@@ -241,7 +241,7 @@
 
                     <div class="sm:col-span-9">
                         <input type="file" name="image_4" id="image_4"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                               file:bg-gray-50 file:border-0
                               file:me-4
                               file:py-3 file:px-4
@@ -256,7 +256,7 @@
 
                     <div class="sm:col-span-9">
                         <input type="file" name="image_5" id="image_5"
-                            class="block w-full border border-gray-200 shadow-md rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            class="block w-full border border-gray-200 shadow-sm rounded-lg text-md focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
                               file:bg-gray-50 file:border-0
                               file:me-4
                               file:py-3 file:px-4
@@ -265,7 +265,7 @@
 
                     <div class="sm:col-span-3">
                         <button type="reset"
-                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-md hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                            class="w-full text-center py-3 px-4 justify-center items-center gap-x-2 text-md font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                             Cancel
                         </button>
                     </div>

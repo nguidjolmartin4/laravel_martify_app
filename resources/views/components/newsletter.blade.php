@@ -1,4 +1,3 @@
-<!-- Subscribe -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-16 mx-auto">
     <div class="grid md:grid-cols-2 gap-8">
         <div class="max-w-md">
@@ -29,4 +28,3 @@
         </form>
     </div>
 </div>
-<!-- End Subscribe -->

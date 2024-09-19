@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -40,8 +41,18 @@ class ProductController extends Controller implements HasMiddleware
      */
     public function show(Product $product)
     {
-        return view('products.show', ['product' => $product]);
+        // Fetch products from the same category, excluding the current product
+        $similarProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->take(4) // Limit the number of similar products
+            ->get();
+
+        return view('store.single-product', [
+            'product' => $product,
+            'similarProducts' => $similarProducts // Pass similar products to the view
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,10 +61,10 @@ class ProductController extends Controller implements HasMiddleware
     {
         $brands = ['Sony', 'Samsung', 'Apple', 'LG', 'Panasonic', 'HP', 'Dell', 'Lenovo', 'Bose', 'Microsoft', 'IKEA', 'La-Z-Boy', 'West Elm', 'Herman Miller', 'Wayfair', 'Restoration Hardware', 'Crate & Barrel', 'Pottery Barn', 'Havertys', 'Nike', 'Adidas', 'H&M', 'Zara', 'Levis', 'Ralph Lauren', 'Gap', 'Uniqlo', 'Under Armour', 'Calvin Klein', 'Penguin Random House', 'HarperCollins', 'Simon & Schuster', 'Hachette', 'Scholastic', 'Macmillan', 'Oxford University Press', 'Bloomsbury', 'Pearson', 'Wiley', 'LEGO', 'Mattel', 'Hasbro', 'Fisher-Price', 'Nerf', 'Barbie', 'Hot Wheels', 'Playmobil', 'Melissa & Doug', 'VTech', 'Nike', 'Adidas', 'Puma', 'Under Armour', 'Reebok', 'New Balance', 'Wilson', 'Spalding', 'Decathlon', 'Ford', 'Toyota', 'Chevrolet', 'Honda', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Goodyear (Tires)', 'Michelin (Tires)', 'Johnson & Johnson', 'Pfizer', 'GSK (GlaxoSmithKline)', 'Abbott', 'Bayer', 'Roche', 'Medtronic', 'Philips Healthcare', 'GE Healthcare', 'Novartis', 'Loréal', 'Estée Lauder', 'Maybelline', 'Sephora', 'MAC Cosmetics', 'Dove', 'Clinique', 'Revlon', 'NARS', 'Chanel', 'Tiffany & Co.', 'Cartier', 'Pandora', 'Swarovski', 'Harry Winston', 'Bulgari', 'Chopard', 'Rolex'];
 
-        $subcategories = Subcategory::all();
+        $categories = Category::all();
         $user = Auth::user();
 
-        return view('users.add-product', compact(['subcategories', 'user', 'brands']));
+        return view('users.add-product', compact(['categories', 'user', 'brands']));
     }
 
     /**
@@ -64,7 +75,7 @@ class ProductController extends Controller implements HasMiddleware
         // Validate the incoming request data
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'subcategory_id' => 'required|exists:subcategories,id',
+            'category_id' => 'required|exists:categories,id',
             'brand' => 'required|string',
             'description' => 'required|string',
             'condition' => 'required|in:new,used',
@@ -94,8 +105,8 @@ class ProductController extends Controller implements HasMiddleware
         DB::transaction(function () use ($validatedData, $imagePaths) {
             // Create a new product with the validated data
             $product = Auth::user()->products()->create([
-                'subcategory_id' => $validatedData['subcategory_id'],
                 'name' => $validatedData['name'],
+                'category_id' => $validatedData['category_id'],
                 'description' => $validatedData['description'],
                 'brand' => $validatedData['brand'],
                 'condition' => $validatedData['condition'],
@@ -111,7 +122,7 @@ class ProductController extends Controller implements HasMiddleware
         });
 
         // Redirect or return a response
-        return redirect()->route('user.dashboard')->with('success', 'Product created successfully!');
+        return back()->with('status', 'Product created successfully!');
     }
 
     /**
@@ -124,7 +135,7 @@ class ProductController extends Controller implements HasMiddleware
 
         $brands = ['Sony', 'Samsung', 'Apple', 'LG', 'Panasonic', 'HP', 'Dell', 'Lenovo', 'Bose', 'Microsoft', 'IKEA', 'La-Z-Boy', 'West Elm', 'Herman Miller', 'Wayfair', 'Restoration Hardware', 'Crate & Barrel', 'Pottery Barn', 'Havertys', 'Nike', 'Adidas', 'H&M', 'Zara', 'Levis', 'Ralph Lauren', 'Gap', 'Uniqlo', 'Under Armour', 'Calvin Klein', 'Penguin Random House', 'HarperCollins', 'Simon & Schuster', 'Hachette', 'Scholastic', 'Macmillan', 'Oxford University Press', 'Bloomsbury', 'Pearson', 'Wiley', 'LEGO', 'Mattel', 'Hasbro', 'Fisher-Price', 'Nerf', 'Barbie', 'Hot Wheels', 'Playmobil', 'Melissa & Doug', 'VTech', 'Nike', 'Adidas', 'Puma', 'Under Armour', 'Reebok', 'New Balance', 'Wilson', 'Spalding', 'Decathlon', 'Ford', 'Toyota', 'Chevrolet', 'Honda', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Goodyear (Tires)', 'Michelin (Tires)', 'Johnson & Johnson', 'Pfizer', 'GSK (GlaxoSmithKline)', 'Abbott', 'Bayer', 'Roche', 'Medtronic', 'Philips Healthcare', 'GE Healthcare', 'Novartis', 'Loréal', 'Estée Lauder', 'Maybelline', 'Sephora', 'MAC Cosmetics', 'Dove', 'Clinique', 'Revlon', 'NARS', 'Chanel', 'Tiffany & Co.', 'Cartier', 'Pandora', 'Swarovski', 'Harry Winston', 'Bulgari', 'Chopard', 'Rolex'];
 
-        $subcategories = Subcategory::all();
+        $Categories = Category::all();
         $user = Auth::user();
 
         return view('users.edit-product', compact(['product', 'brands', 'subcategories', 'user']));

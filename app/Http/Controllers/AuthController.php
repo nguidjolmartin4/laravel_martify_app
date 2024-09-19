@@ -19,10 +19,9 @@ class AuthController extends Controller
     {
         $messages = [
             'password.min' => 'The password must be at least 8 characters long.',
-            'password.letters' => 'The password must contain at least one letter.',
-            'password.mixedCase' => 'The password must contain at least one uppercase and one lowercase letter.',
-            'password.numbers' => 'The password must contain at least one number.',
-            'password.symbols' => 'The password must contain at least one special character.',
+            'password.mixedCase' => 'The password must contain at an upper case letter',
+            'password.numbers' => 'The password must contain at a digit.',
+            'password.symbols' => 'The password must contain at a special character.',
         ];
 
         // Validate User Input with custom error messages
@@ -30,7 +29,7 @@ class AuthController extends Controller
             'first_name' => ['required', 'max:255'],
             'last_name' => ['required', 'max:255'],
             'email' => ['required', 'max:255', 'email', 'unique:users'],
-            'password' => ['required', 'confirmed',  Password::min(8)->letters()->mixedCase()->numbers()->symbols()]
+            'password' => ['required', 'confirmed',  Password::min(8)->mixedCase()->numbers()->symbols()]
         ], $messages);
 
         // Hash the password before storing it
@@ -66,14 +65,12 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
-        // Check if the email exists and belongs to a user with the 'user' role
-        $user = User::where('email', $fields['email'])
-            ->where('role', 'user') // Assuming 'role' is the column name
-            ->first();
+        // Check if the user exists
+        $user = User::where('email', $fields['email'])->first();
 
         if (!$user) {
             return back()->withErrors([
-                'email' => 'We didn\'t find any user with this email in our records or the user is not authorized.'
+                'email' => 'We didn\'t find any user with this email in our records.'
             ]);
         }
 
@@ -84,9 +81,17 @@ class AuthController extends Controller
             ]);
         }
 
-        // Login successful
-        return redirect()->intended();
+        // Redirect based on user role
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard'); // Adjust to your admin dashboard route
+        } else if ($user->role === 'user') {
+            return redirect()->route('user.dashboard'); // Adjust to your regular user dashboard route
+        }
+
+        // Optional fallback if no role matches
+        return redirect()->intended('/');
     }
+
 
     /**
      * This function handles email notice, it actually returns the view telling the user to verify the email

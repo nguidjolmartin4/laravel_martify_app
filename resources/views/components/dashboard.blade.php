@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title> Dashboard </title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/main.min.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-gray-50 ">
@@ -32,7 +32,7 @@
                                 alt="Avatar" />
                         </button>
 
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-sm rounded-lg mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg ">
                                 <p class="text-md text-gray-500 ">
