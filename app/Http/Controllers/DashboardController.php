@@ -185,9 +185,9 @@ class DashboardController extends Controller
         $user = Auth::user();
 
         // Update the user's basic information
-        $user->first_name = $fields['first_name'];
-        $user->last_name = $fields['last_name'];
-        $user->email = $fields['email'];
+        $user->first_name = $fields['first_name'] ?? $user->first_name;
+        $user->last_name = $fields['last_name'] ?? $user->last_name;
+        $user->email = $fields['email'] ?? $user->email;
         $user->country = $fields['country'] ?? $user->country;
         $user->region = $fields['region'] ?? $user->region;
         $user->city = $fields['city'] ?? $user->city;

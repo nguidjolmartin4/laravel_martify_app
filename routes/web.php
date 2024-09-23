@@ -13,10 +13,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Models\Product;
 use Illuminate\Container\Attributes\Auth;
-use Illuminate\Support\Facades\Session;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/', [CartController::class, 'addToCart']);
 
 Route::view('/privacy', 'privacy')->name('privacy');
 Route::view('/contact', 'contact')->name('contact');
@@ -32,6 +30,10 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{product}', 'show')->name('product.show');
     Route::get('/product/{user}/user', 'user_product')->name('user.product');
 });
+
+Route::view('/implement', 'dashboard.product.add-product');
+
+Route::post('/implement', []);
 
 Route::post('/product/{product}', function (Request $request, Product $product) {
     if ($request->submit === "cart") {

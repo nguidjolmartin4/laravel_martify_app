@@ -47,7 +47,7 @@ class CategorySeeder extends Seeder
                 'description' => 'Browse musical instruments, audio equipment, and accessories for music lovers.'
             ],
             [
-                'name' => 'TV/Projectors',
+                'name' => 'TV / Projectors',
                 'description' => 'Get the best in home entertainment with top-rated TVs and projectors.'
             ],
             [
@@ -67,7 +67,7 @@ class CategorySeeder extends Seeder
                 'description' => 'Find accessories, parts, and gear for your car or motorbike to keep them in top shape.'
             ],
             [
-                'name' => 'Photo/Video',
+                'name' => 'Photo / Video',
                 'description' => 'Capture your best moments with high-quality cameras, lenses, and video equipment.'
             ],
             [
@@ -104,10 +104,9 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => 'Other',
-                'description' => 'Explore miscellaneous items that don’t fit into the traditional categories.'
+                'description' => 'Explore miscellaneous items that don\'t fit into the traditional categories.'
             ]
         ];
-
 
         foreach ($categories as $category) {
             DB::table('categories')->insert([

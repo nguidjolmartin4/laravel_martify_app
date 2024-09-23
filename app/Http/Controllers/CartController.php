@@ -125,22 +125,17 @@ class CartController extends Controller
      */
     public function update(Request $request, $cartItemId)
     {
-        // Step 1: Retrieve the cart item
         $cartItem = CartItem::find($cartItemId);
 
-        // Step 2: Ensure the cart item exists
         if (!$cartItem) {
             return redirect()->back()->withErrors(['Cart item not found']);
         }
 
-        // Step 3: Check if the user is authenticated or a guest
         if (Auth::check()) {
-            // Authenticated user: ensure the cart belongs to the user
             if ($cartItem->cart->user_id !== Auth::id()) {
                 return redirect()->back()->withErrors(['Unauthorized action']);
             }
         } else {
-            // Guest user: ensure the session matches
             if ($cartItem->cart->session_id !== Session::getId()) {
                 return redirect()->back()->withErrors(['Unauthorized action']);
             }
@@ -150,24 +145,22 @@ class CartController extends Controller
             'action' => 'required|in:increase,decrease',
         ]);
 
-        // Step 4: Adjust the quantity based on user input
         if ($request->action === 'increase') {
             $cartItem->increment('quantity');
         } elseif ($request->action === 'decrease') {
             $cartItem->decrement('quantity');
 
-            // If quantity reaches 0, delete the item
             if ($cartItem->quantity <= 0) {
                 $cartItem->delete();
                 return redirect()->back()->with('info', 'Item removed from the cart.');
             }
         }
 
-        // Step 5: Recalculate the total cart price
         $cart = $cartItem->cart;
         $cart->total = $cart->cartItems->sum(function ($item) {
             return $item->quantity * $item->price;
         });
+
         $cart->save();
 
         return redirect()->back()->with('success', 'Cart updated successfully.');
@@ -178,20 +171,16 @@ class CartController extends Controller
      */
     public function destroy($cartItemId)
     {
-        // Step 1: Retrieve the cart item
         $cartItem = CartItem::find($cartItemId);
 
-        // Step 2: Ensure the cart item exists
         if (!$cartItem) {
             return redirect()->back()->withErrors(['Cart item not found']);
         }
 
-        // Step 3: Check if the cart belongs to the authenticated user or the current session (guest user)
         $cart = Auth::check()
             ? Cart::where('user_id', Auth::id())->first()
             : Cart::where('session_id', session()->getId())->first();
 
-        // Step 4: Ensure the cart exists and the cart item belongs to that cart
         if (!$cart || $cartItem->cart_id !== $cart->id) {
             return redirect()->back()->withErrors(['error' => 'Unauthorized action or item not found in your cart.']);
         }

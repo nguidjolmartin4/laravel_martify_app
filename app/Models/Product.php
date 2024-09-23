@@ -11,19 +11,25 @@ class Product extends Model
 
     protected $fillable = [
         'user_id',
-        'category_id',
         'name',
-        'description',
+        'category_id',
         'brand',
         'price',
-        'stock_quantity',
-        'image_1',
-        'image_2',
-        'image_3',
-        'image_4',
-        'image_5',
-        'status'
+        'shipping_fee',
+        'weight',
+        'stock',
+        'condition',
+        'ship_from_address',
+        'description',
     ];
+
+    /**
+     * Get all images who belongs to this product.
+     */
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 
     /**
      * Get the user who owns the product.

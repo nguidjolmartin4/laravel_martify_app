@@ -11,19 +11,17 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('brand');
-            $table->text('description');
-            $table->enum('condition', ['new', 'used'])->default('new');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('stock_quantity');
-            $table->string('image_1');
-            $table->string('image_2')->nullable();
-            $table->string('image_3')->nullable();
-            $table->string('image_4')->nullable();
-            $table->string('image_5')->nullable();
-            $table->enum('status', ['available', 'sold', 'out-of-stock'])->default('available');
+            $table->decimal('price', 10, 2);
+            $table->decimal('shipping_fee', 10, 2);
+            $table->decimal('weight', 8, 2);
+            $table->unsignedInteger('stock');
+            $table->enum('condition', ['New', 'Refurbished', 'Pre-Owned'])->default('New');
+            $table->string('ship_from_address');
+            $table->longText('description');
+            $table->enum('status', ['Available', 'Sold', 'Out of Stock'])->default('Available');
             $table->timestamps();
         });
     }

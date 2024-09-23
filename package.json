@@ -17,6 +17,7 @@
     "dependencies": {
         "@popperjs/core": "^2.11.8",
         "@preline/datatable": "^2.4.1",
+        "@preline/file-upload": "^2.4.1",
         "@preline/select": "^2.4.1",
         "@preline/strong-password": "^2.4.1",
         "@preline/toggle-password": "^2.4.1",
@@ -24,7 +25,10 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "apexcharts": "^3.53.0",
         "datatables.net-dt": "^2.1.4",
+        "dropzone": "^6.0.0-beta.2",
         "flowbite": "^2.5.1",
-        "preline": "^2.4.1"
+        "lodash": "^4.17.21",
+        "preline": "^2.4.1",
+        "simple-datatables": "^9.1.0"
     }
 }

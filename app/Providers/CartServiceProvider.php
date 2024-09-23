@@ -31,8 +31,13 @@ class CartServiceProvider extends ServiceProvider
             // Check if the cart exists, otherwise use an empty collection
             $cartItems = $cart ? $cart->cartItems()->with('product')->get() : collect();
 
+            $user = Auth::user();
+
             // Share this with all views/components
-            $view->with('cartItems', $cartItems);
+            $view->with([
+                'cartItems' => $cartItems,
+                'user' => $user
+            ]);
         });
     }
 
